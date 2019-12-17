@@ -24,8 +24,7 @@ extern char _binary_pacman_bmp_start;
 
 int color;
 
-
-*******************************************/
+//---------------------
 extern int replacePix;
 int main()
 {
@@ -33,7 +32,7 @@ int main()
    int mode;
    uart_init();
    up = upp[0];
-   int canWalkSpace = ffffff //Pacman can walk on white pixels
+   int canWalkSpace = 0xffffff; //Pacman can walk on white pixels
    int x = 60;
    int y = 60;
    mode = 0;
@@ -56,19 +55,19 @@ int main()
       switch (key)
       {
       case 'w':     //Up
-         if (y -10 = 0) //Keeps pacman on the map
+         if (y > 30) //Keeps pacman on the map
             y -= 10;
          break;
       case 's':       //Down
-         if (y < 100) //Keeps pacman on the map
+         if (y < 250) //Keeps pacman on the map
             y += 10;
          break;
       case 'a':      //Left
-         if (x > 80) //Keeps pacman on the map
+         if (x > 40) //Keeps pacman on the map
             x -= 10;
          break;
       case 'd':       //Right
-         if (x < 550) //Keeps pacman on the map
+         if (x < 590) //Keeps pacman on the map
             x += 10;
          break;
       default:
